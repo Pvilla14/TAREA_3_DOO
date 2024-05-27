@@ -11,7 +11,7 @@ public class Pantalla extends JFrame{
         setTitle("Pantalla");
         this.setLayout(null);
 
-        this.add(new JPanelExpendedor());
+        this.add(new JPanelExpendedor(main));
         this.add(new JPanelMonedas(main));
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
