@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Boton500 extends JButton {
-    MainVisual instanciaMain = null;
+    MainVisual instanciaMain;
     public Boton500(MainVisual main) {
         super();
         instanciaMain = main;
@@ -33,8 +33,7 @@ public class Boton500 extends JButton {
         @Override
         public void actionPerformed(ActionEvent ae) {
             System.out.println("Se selecciono la moneda de 500 pesos");
-            Moneda500 moneda = new Moneda500();
-            instanciaMain.cargarMoneda(moneda);
+            instanciaMain.cargarMoneda(new Moneda500());
         }
     }
 }
