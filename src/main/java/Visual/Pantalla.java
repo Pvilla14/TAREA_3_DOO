@@ -6,14 +6,13 @@ import javax.swing.*;
 import javax.swing.event.ChangeListener;
 
 public class Pantalla extends JFrame{
-    public Pantalla(){
+    public Pantalla(MainVisual main){
         super();
         setTitle("Pantalla");
         this.setLayout(null);
 
         this.add(new JPanelExpendedor());
-        this.add(new JPanelMonedas());
-        this.add(new Boton100());
+        this.add(new JPanelMonedas(main));
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(1000,800);

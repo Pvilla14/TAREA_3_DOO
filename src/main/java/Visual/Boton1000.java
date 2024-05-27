@@ -1,19 +1,19 @@
 package Visual;
 
-import Tarea.clasemoneda.Moneda100;
-
+import Tarea.clasemoneda.Moneda;
+import Tarea.clasemoneda.Moneda1000;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Boton100 extends JButton {
-    MainVisual instanciaMain = null;
-    public Boton100(MainVisual main) {
+public class Boton1000 extends JButton {
+    MainVisual instanciaMian = null;
+    public Boton1000(MainVisual main) {
         super();
-        instanciaMain = main;
+        instanciaMian = main;
         // Cargar y redimensionar la imagen
-        ImageIcon icon = new ImageIcon(Boton100.class.getResource("/Moneda100.png"));
+        ImageIcon icon = new ImageIcon(Boton1000.class.getResource("/Moneda1000.png"));
         Image scaledImage = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         this.setIcon(new ImageIcon(scaledImage));
 
@@ -31,9 +31,9 @@ public class Boton100 extends JButton {
     private class CrearMoneda implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
-            System.out.println("Se selecciono la moneda de 100 pesos");
-            Moneda100 moneda = new Moneda100();
-            instanciaMain.cargarMoneda(moneda);
+            System.out.println("Se selecciono la moneda de 1000 pesos");
+            Moneda1000 monedaconvalor = new Moneda1000();
+            instanciaMian.cargarMoneda(monedaconvalor);
         }
     }
 }
