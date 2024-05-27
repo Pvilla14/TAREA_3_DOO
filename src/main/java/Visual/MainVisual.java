@@ -1,23 +1,22 @@
 package Visual;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import Tarea.Producto;
 import Tarea.clasemoneda.Moneda;
-
-import javax.swing.*;
 
 public class MainVisual {
     private Moneda moneda = null;
+    private Producto producto = null;
     public static void main(String[] args) {
         MainVisual instanciamain = new MainVisual();
         Pantalla pantalla = new Pantalla(instanciamain);
     }
 
-    public Moneda getMoneda() {
-        return moneda;
-    }
+    public void SeleccionarProducto(Producto p) {
+        producto = p;
 
+    }
     public void cargarMoneda(Moneda m){
         moneda = m;
+        System.out.println("Moneda: " + moneda + "Valor" +moneda.getValor());
     }
 }
