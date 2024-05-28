@@ -33,7 +33,7 @@ public class Boton500 extends JButton {
         @Override
         public void actionPerformed(ActionEvent ae) {
             System.out.println("Se selecciono la moneda de 500 pesos");
-            instanciaMain.cargarMoneda(new Moneda500());
+            instanciaMain.cargarMoneda(new Moneda500(2));
         }
     }
 }
