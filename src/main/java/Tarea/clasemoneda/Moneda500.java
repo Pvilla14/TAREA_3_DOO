@@ -5,7 +5,7 @@ public class Moneda500 extends Moneda {
         return 500;
     }
 
-    public Moneda500() {//llama al cosntructor de moneda, pero sigue sin hacer nada xd
-        super();
+    public Moneda500(int x) {//llama al cosntructor de moneda, pero sigue sin hacer nada xd
+        super(x);
     }
 }

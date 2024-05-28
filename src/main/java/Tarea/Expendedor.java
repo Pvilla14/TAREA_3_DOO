@@ -39,7 +39,7 @@ class Expendedor {
         }
 
         for(int i = producto.getCoste(); i<m.getValor(); i+=100){//agrega monedas hasta que la cantidad sea igual a la diferencia entre el
-            monVu.addElemento(new Moneda100());                  //precio del producto y el valor de la moneda dada
+            monVu.addElemento(new Moneda100(1));                  //precio del producto y el valor de la moneda dada
         }
         Bebida auxBebida = null;
         Dulces auxDulces = null;
