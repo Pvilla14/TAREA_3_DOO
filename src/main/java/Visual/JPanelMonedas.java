@@ -8,7 +8,6 @@ public class JPanelMonedas extends JPanel {
     public JPanelMonedas(MainVisual main) {
         super();
         setLayout(null);
-        this.setBackground(Color.BLACK);
         this.setBounds(0, 0, 500, 800);
         Boton100 boton100 = new Boton100(main);
         boton100.setBounds(50, 10, 100, 100);
@@ -22,5 +21,9 @@ public class JPanelMonedas extends JPanel {
         Boton1500 boton1500 = new Boton1500(main);
         boton1500.setBounds(160, 120, 100, 100);
         this.add(boton1500);
+    }
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        setBackground(Color.BLACK);
     }
 }

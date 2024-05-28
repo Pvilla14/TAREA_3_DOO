@@ -13,13 +13,6 @@ public class Boton500 extends JButton {
     public Boton500(MainVisual main) {
         super();
         instanciaMain = main;
-        // Cargar y redimensionar la imagen
-        ImageIcon icon = new ImageIcon(Boton500.class.getResource("/Moneda500.png"));
-        Image scaledImage = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-        this.setIcon(new ImageIcon(scaledImage));
-
-        // Ajustar el tamaño del botón
-        this.setPreferredSize(new Dimension(100, 100));
 
         // Configurar el ActionListener
         this.addActionListener(new CrearMoneda());
@@ -28,7 +21,13 @@ public class Boton500 extends JButton {
         this.setHorizontalTextPosition(SwingConstants.CENTER);
         this.setVerticalTextPosition(SwingConstants.BOTTOM);
     }
-
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        ImageIcon foto = new ImageIcon(Boton100.class.getResource("/Moneda500.png"));
+        Image scaledImage = foto.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        Image foto2 = foto.getImage();
+        g.drawImage(foto2,0,0,getWidth(),getHeight(),null);
+    }
     private class CrearMoneda implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {

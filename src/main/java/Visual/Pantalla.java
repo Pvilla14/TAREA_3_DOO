@@ -18,5 +18,4 @@ public class Pantalla extends JFrame{
         this.setSize(1000,800);
         this.setVisible(true);
     }
-
 }

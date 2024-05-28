@@ -6,7 +6,6 @@ public class JPanelBebidas extends JPanel {
     public JPanelBebidas(MainVisual main) {
         super();
         setLayout(null);
-        this.setBackground(Color.WHITE);
         BotonCoca coca = new BotonCoca(main);
         coca.setBounds(30,50,100,100);
         this.add(coca);
@@ -16,5 +15,9 @@ public class JPanelBebidas extends JPanel {
         BotonFanta fanta = new BotonFanta(main);
         fanta.setBounds(250,50,100,100);
         this.add(fanta);
+    }
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        this.setBackground(Color.WHITE);
     }
 }

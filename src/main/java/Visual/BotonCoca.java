@@ -11,13 +11,6 @@ public class BotonCoca extends JButton {
     public BotonCoca(MainVisual main) {
         super();
         instanciaMain = main;
-        // Cargar y redimensionar la imagen
-        ImageIcon icon = new ImageIcon(Boton100.class.getResource("/Cocacola.png"));
-        Image scaledImage = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-        this.setIcon(new ImageIcon(scaledImage));
-
-        // Ajustar el tamaño del botón
-        this.setPreferredSize(new Dimension(100, 100));
 
         //Añadir el Listener
         this.addActionListener(new SeleccionarCoca());
@@ -25,6 +18,13 @@ public class BotonCoca extends JButton {
         // Configurar el layout del botón
         this.setHorizontalTextPosition(SwingConstants.CENTER);
         this.setVerticalTextPosition(SwingConstants.BOTTOM);
+    }
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        ImageIcon foto = new ImageIcon(Boton100.class.getResource("/CocaCola.png"));
+        Image scaledImage = foto.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        Image foto2 = foto.getImage();
+        g.drawImage(foto2,0,0,getWidth(),getHeight(),null);
     }
 
     private class SeleccionarCoca implements ActionListener {
