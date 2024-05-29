@@ -1,6 +1,6 @@
 package Visual;
 
-import Tarea.clasebebida.CocaCola;
+import Tarea.Valoresestaticos;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -31,7 +31,7 @@ public class BotonCoca extends JButton {
         @Override
         public void actionPerformed(ActionEvent ae) {
             System.out.println("Se selecciono la bebida Cocacola");
-            instanciaMain.SeleccionarProducto(new CocaCola(1));
+            instanciaMain.SeleccionarProducto(Valoresestaticos.COCA);
         }
     }
 

@@ -1,7 +1,6 @@
 package Visual;
 
-import Tarea.clasebebida.CocaCola;
-import Tarea.clasedulces.Super8;
+import Tarea.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,7 +29,7 @@ public class BotonSuper8 extends JButton {
         @Override
         public void actionPerformed(ActionEvent ae) {
             System.out.println("Se selecciono el dulce Super8");
-            instanciaMain.SeleccionarProducto(new Super8(6));
+            instanciaMain.SeleccionarProducto(Valoresestaticos.SUPER8);
         }
     }
 

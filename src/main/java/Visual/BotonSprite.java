@@ -1,6 +1,6 @@
 package Visual;
 
-import Tarea.clasebebida.Sprite;
+import Tarea.Valoresestaticos;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -28,7 +28,7 @@ public class BotonSprite extends JButton {
         @Override
         public void actionPerformed(ActionEvent ae) {
             System.out.println("Se selecciono una bebida Sprite");
-            instanciaMain.SeleccionarProducto(new Sprite(2));
+            instanciaMain.SeleccionarProducto(Valoresestaticos.SPRITE);
         }
     }
 

@@ -1,6 +1,7 @@
 package Visual;
 
-import Tarea.clasebebida.Fanta;
+
+import Tarea.Valoresestaticos;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -29,7 +30,7 @@ public class BotonFanta extends JButton {
         @Override
         public void actionPerformed(ActionEvent ae) {
             System.out.println("Se selecciono la bebida Fanta");
-            instanciaMain.SeleccionarProducto(new Fanta(3));
+            instanciaMain.SeleccionarProducto(Valoresestaticos.FANTA);
         }
     }
 

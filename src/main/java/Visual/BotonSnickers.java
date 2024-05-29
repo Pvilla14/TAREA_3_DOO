@@ -1,7 +1,6 @@
 package Visual;
 
-import Tarea.clasedulces.Snickers;
-
+import Tarea.Valoresestaticos;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,7 +29,7 @@ public class BotonSnickers extends JButton {
         @Override
         public void actionPerformed(ActionEvent ae) {
             System.out.println("Se selecciono el dulce Snickers");
-            instanciaMain.SeleccionarProducto(new Snickers(5));
+            instanciaMain.SeleccionarProducto(Valoresestaticos.SNICKERS);
         }
     }
 

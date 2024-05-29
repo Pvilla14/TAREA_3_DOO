@@ -1,8 +1,6 @@
 package Visual;
 
-import Tarea.clasebebida.CocaCola;
-import Tarea.clasedulces.Serranita;
-
+import Tarea.Valoresestaticos;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -31,7 +29,7 @@ public class BotonSerranita extends JButton {
         @Override
         public void actionPerformed(ActionEvent ae) {
             System.out.println("Se selecciono el dulce Serranita");
-            instanciaMain.SeleccionarProducto(new Serranita(4));
+            instanciaMain.SeleccionarProducto(Valoresestaticos.SERRANITA);
         }
     }
 
