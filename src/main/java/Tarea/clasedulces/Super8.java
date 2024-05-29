@@ -16,9 +16,4 @@ public class Super8 extends Dulces{
         return (super.Consumir() + "oreo");
     }
 
-    @Override
-    public int getPrecio() {
-        Valoresestaticos v = Valoresestaticos.SUPER8;
-        return v.getCoste();
-    }
 }

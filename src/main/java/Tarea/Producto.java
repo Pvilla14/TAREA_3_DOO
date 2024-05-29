@@ -18,5 +18,4 @@ public abstract class Producto {//calse que generaliza bebidas y dulce, pemitien
         serie = a;
     }
 
-    public abstract int getPrecio();
 }

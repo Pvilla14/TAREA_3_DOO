@@ -16,9 +16,4 @@ public class Serranita extends Dulces{
         return (super.Consumir() + "serranita");
     }
 
-    @Override
-    public int getPrecio() {
-        Valoresestaticos v = Valoresestaticos.SERRANITA;
-        return v.getCoste();
-    }
 }

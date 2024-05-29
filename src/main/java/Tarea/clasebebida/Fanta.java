@@ -16,9 +16,4 @@ public class Fanta extends Bebida {
         return (super.Consumir() + "pepsi");
     }
 
-    @Override
-    public int getPrecio() {
-        Valoresestaticos v = Valoresestaticos.FANTA;
-        return v.getCoste();
-    }
 }

@@ -16,9 +16,4 @@ public class Snickers extends Dulces{
         return (super.Consumir() + "caluga");
     }
 
-    @Override
-    public int getPrecio() {
-        Valoresestaticos v = Valoresestaticos.SNICKERS;
-        return v.getCoste();
-    }
 }

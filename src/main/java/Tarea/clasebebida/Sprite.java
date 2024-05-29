@@ -16,9 +16,4 @@ public class Sprite extends Bebida {
         return (super.Consumir() + "sprite");
     }
 
-    @Override
-    public int getPrecio() {
-        Valoresestaticos v = Valoresestaticos.SPRITE;
-        return v.getCoste();
-    }
 }

@@ -16,9 +16,4 @@ public class CocaCola extends Bebida {
         return (super.Consumir() + "cocacola");
     }
 
-    @Override
-    public int getPrecio() {
-        Valoresestaticos v = Valoresestaticos.COCA;
-        return v.getCoste();
-    }
 }
