@@ -83,7 +83,7 @@ class Expendedor {
                 }
                 return auxDulces;//retorna el producto
 
-            case CALUGAS: //retorna un dulce de tipo calugas si no manda excepción
+            case SNICKERS: //retorna un dulce de tipo calugas si no manda excepción
                 auxDulces = calugas.getElemento();
                 if(auxDulces == null){
                     for(int i = producto.getCoste(); i<m.getValor(); i+=100){
@@ -93,7 +93,7 @@ class Expendedor {
                 }
                 return auxDulces;//retorna el producto
 
-            case OREOS: //retorna un dulce de tipo oreos si no manda excepción
+            case SUPER8: //retorna un dulce de tipo oreos si no manda excepción
                 auxDulces = oreos.getElemento();
                 if(auxDulces == null){
                     for(int i = producto.getCoste(); i<m.getValor(); i+=100){

@@ -1,5 +1,7 @@
 package Tarea.clasedulces;
 
+import Tarea.Valoresestaticos;
+
 public class Snickers extends Dulces{
 /**
  * cosntructor que define la serie del dulce
@@ -12,5 +14,11 @@ public class Snickers extends Dulces{
 
     public String Consumir() {//personaliza el metodo consumir de la clase dulce
         return (super.Consumir() + "caluga");
+    }
+
+    @Override
+    public int getPrecio() {
+        Valoresestaticos v = Valoresestaticos.SNICKERS;
+        return v.getCoste();
     }
 }

@@ -1,5 +1,7 @@
 package Tarea.clasebebida;
 
+import Tarea.Valoresestaticos;
+
 public class CocaCola extends Bebida {
 /**
  * cosntructor que define la serie de la bebida
@@ -12,5 +14,11 @@ public class CocaCola extends Bebida {
 
     public String Consumir() {//personaliza el metodo consumir de la clase bebida
         return (super.Consumir() + "cocacola");
+    }
+
+    @Override
+    public int getPrecio() {
+        Valoresestaticos v = Valoresestaticos.COCA;
+        return v.getCoste();
     }
 }
