@@ -1,9 +1,12 @@
 package Visual;
+import Visual.Botones.Boton100;
+import Visual.Botones.Boton1000;
+import Visual.Botones.Boton1500;
+import Visual.Botones.Boton500;
+
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.*;
-import javax.swing.event.ChangeListener;
+
 public class JPanelMonedas extends JPanel {
     public JPanelMonedas(MainVisual main) {
         super();

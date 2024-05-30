@@ -1,4 +1,8 @@
 package Visual;
+import Visual.Botones.BotonSerranita;
+import Visual.Botones.BotonSnickers;
+import Visual.Botones.BotonSuper8;
+
 import javax.swing.*;
 import java.awt.*;
 

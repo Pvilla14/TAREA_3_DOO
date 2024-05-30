@@ -1,4 +1,8 @@
 package Visual;
+import Visual.Botones.BotonCoca;
+import Visual.Botones.BotonFanta;
+import Visual.Botones.BotonSprite;
+
 import javax.swing.*;
 import java.awt.*;
 
