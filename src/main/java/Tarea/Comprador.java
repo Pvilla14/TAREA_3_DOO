@@ -24,9 +24,9 @@ class Comprador {
      * @throws Exception manda una excepción en caso de que el deposito esté vacio
      */
     public Comprador(Moneda m, Valoresestaticos producto, Expendedor exp)throws Exception {
-        Producto beer = exp.comprarProducto(m, producto);//se llama a la funcion comprarProducto que devuelve un producto o devuelve
+        exp.comprarProducto(m, producto);//se llama a la funcion comprarProducto que devuelve un producto o devuelve
         // null si estaba vacio el deposito de dicho producto
-
+        Producto beer = exp.getCompra();
         if (beer != null) {
             sonido = beer.Consumir();//si no es null le asigna un valor a sonido con lo que llega desde el producto
         } else {

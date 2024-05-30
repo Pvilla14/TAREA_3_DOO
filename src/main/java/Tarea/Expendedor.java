@@ -15,6 +15,7 @@ class Expendedor {
     private Deposito<Dulces> calugas;//Depositos de Dulces tipo snickers
     private Deposito<Dulces> oreos;//Depositos de Dulces tipo super8
     private Deposito<Moneda> monVu;//Depositos de Monedas para el vuelto
+    private Producto Compra;
 
     public Moneda getVuelto() throws Exception{
         return monVu.getElemento();//retorna las monedas q se encuentran en el deposito de monedas
@@ -26,7 +27,7 @@ class Expendedor {
      * @return un elemento de los depositos dependiendo de lo q se solicite, ya sea dulce o bebida
      * @throws Exception manda la excepción de PagoIncorectoException si se usa una moneda no instanciada o de tipo null
      */
-    public Producto comprarProducto(Moneda m, Valoresestaticos producto) throws Exception{
+    public void comprarProducto(Moneda m, Valoresestaticos producto) throws Exception{
         if(m == null){//si la moneda no tiene valor o no está definida manda una excepcion del tipo PagoIncorrectoException
             throw new PagoIncorrectoException();
         }
@@ -52,7 +53,7 @@ class Expendedor {
                     }
                     monVu.addElemento(m);
                 }
-                return coca.getElemento();//retorna el producto
+                Compra = coca.getElemento();//retorna el producto
 
             case SPRITE: //retorna una bebida de tipo sprite si no manda excepción
                 if (sprite.getElemento() == null){
@@ -61,7 +62,7 @@ class Expendedor {
                     }
                     monVu.addElemento(m);
                 }
-                return sprite.getElemento();//retorna el producto
+                Compra = sprite.getElemento();//retorna el producto
 
             case FANTA: //retorna una bebida de tipo fanta si no manda excepción
                 auxBebida = fanta.getElemento();
@@ -71,7 +72,7 @@ class Expendedor {
                     }
                     monVu.addElemento(m);
                 }
-                return auxBebida;//retorna el producto
+                Compra = auxBebida;//retorna el producto
 
             case SERRANITA: //retorna un dulce de tipo serranita si no manda excepción
                 auxDulces = serranita.getElemento();
@@ -81,7 +82,7 @@ class Expendedor {
                     }
                     monVu.addElemento(m);
                 }
-                return auxDulces;//retorna el producto
+                Compra = auxDulces;//retorna el producto
 
             case SNICKERS: //retorna un dulce de tipo calugas si no manda excepción
                 auxDulces = calugas.getElemento();
@@ -91,7 +92,7 @@ class Expendedor {
                     }
                     monVu.addElemento(m);
                 }
-                return auxDulces;//retorna el producto
+                Compra = auxDulces;//retorna el producto
 
             case SUPER8: //retorna un dulce de tipo oreos si no manda excepción
                 auxDulces = oreos.getElemento();
@@ -101,10 +102,14 @@ class Expendedor {
                     }
                     monVu.addElemento(m);
                 }
-                return auxDulces;//retorna el producto
+                Compra = auxDulces;//retorna el producto
 
-            default: return null;//no retorna nada en caso de que no se escojiera un tipo de producto
+            default: Compra = null;//no retorna nada en caso de que no se escojiera un tipo de producto
         }
+    }
+
+    public Producto getCompra(){
+        return Compra;
     }
     /**
      *@author Pablo Villagrán-Lucas Morales1    1
