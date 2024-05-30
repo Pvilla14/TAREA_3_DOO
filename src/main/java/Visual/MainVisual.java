@@ -1,10 +1,7 @@
 package Visual;
 
-import Tarea.Producto;
 import Tarea.Valoresestaticos;
 import Tarea.clasemoneda.Moneda;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainVisual {
