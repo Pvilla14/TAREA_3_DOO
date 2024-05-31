@@ -11,8 +11,7 @@ public class BotonFanta extends BotonUltra {
     }
 
     @Override
-    public void crearElemento() {
-        System.out.println("Se selecciono una bebida Fanta");
+    public void crearElemento() throws Exception {
         instanciaMain.SeleccionarProducto(Valoresestaticos.FANTA);
     }
 }

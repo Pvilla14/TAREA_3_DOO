@@ -2,7 +2,7 @@ package Tarea;
 import Tarea.clasemoneda.*;
 import Tarea.mensajeerror.*;
 
-class Comprador {
+public class Comprador {
     private String sonido;
     private int vuelto = 0;
 

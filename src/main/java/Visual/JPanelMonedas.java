@@ -1,9 +1,5 @@
 package Visual;
-import Visual.Botones.Boton100;
-import Visual.Botones.Boton1000;
-import Visual.Botones.Boton1500;
-import Visual.Botones.Boton500;
-
+import Visual.Botones.*;
 import java.awt.*;
 import javax.swing.*;
 
@@ -25,6 +21,7 @@ public class JPanelMonedas extends JPanel {
         boton1500.setBounds(160, 120, 100, 100);
         this.add(boton1500);
     }
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         setBackground(Color.BLACK);

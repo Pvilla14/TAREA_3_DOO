@@ -11,8 +11,7 @@ public class Boton100 extends BotonUltra {
     }
 
     @Override
-    public void crearElemento() {
-        System.out.println("Se selecciono la moneda de 100 pesos");
+    public void crearElemento() throws Exception {
         instanciaMain.cargarMoneda(new Moneda100(1));
     }
 }

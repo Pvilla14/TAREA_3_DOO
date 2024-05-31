@@ -10,8 +10,7 @@ public class BotonSerranita extends BotonUltra {
     }
 
     @Override
-    public void crearElemento() {
-        System.out.println("Se selecciono el dulce Serranita");
+    public void crearElemento() throws Exception {
         instanciaMain.SeleccionarProducto(Valoresestaticos.SERRANITA);
     }
 

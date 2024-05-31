@@ -7,7 +7,9 @@ import Tarea.clasebebida.Bebida;
 import Tarea.clasebebida.Fanta;
 import Tarea.clasebebida.Sprite;
 
-class Expendedor {
+import java.util.ArrayList;
+
+public class Expendedor {
     private Deposito<Bebida> coca;//Depositos de Bebida sabor cocacola
     private Deposito<Bebida> sprite;//Depositos de Bebida sabor sprite
     private Deposito<Bebida> fanta;//Depositos de Bebida sabor fanta

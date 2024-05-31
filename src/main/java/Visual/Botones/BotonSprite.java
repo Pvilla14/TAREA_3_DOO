@@ -10,8 +10,7 @@ public class BotonSprite extends BotonUltra{
     }
 
     @Override
-    public void crearElemento() {
-        System.out.println("Se selecciono una bebida Sprite");
+    public void crearElemento() throws Exception {
         instanciaMain.SeleccionarProducto(Valoresestaticos.SPRITE);
     }
 }

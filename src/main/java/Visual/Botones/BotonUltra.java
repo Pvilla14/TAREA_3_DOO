@@ -9,7 +9,8 @@ import java.awt.event.ActionListener;
 public abstract class BotonUltra extends JButton {
     private Image foto2;
     protected MainVisual instanciaMain;
-    public BotonUltra(MainVisual main){
+
+    public BotonUltra(MainVisual main) {
         super();
         instanciaMain = main;
         // Configurar el ActionListener
@@ -19,22 +20,28 @@ public abstract class BotonUltra extends JButton {
         this.setHorizontalTextPosition(SwingConstants.CENTER);
         this.setVerticalTextPosition(SwingConstants.BOTTOM);
     }
-    public void paintComponent(Graphics g){
+
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(foto2,0,0,getWidth(),getHeight(),null);
+        g.drawImage(foto2, 0, 0, getWidth(), getHeight(), null);
     }
 
-    public void setImage(String archivo){
+    public void setImage(String archivo) {
         ImageIcon foto = new ImageIcon(Boton100.class.getResource(archivo));
         Image scaledImage = foto.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         foto2 = foto.getImage();
     }
 
-    public abstract void crearElemento();
+    public abstract void crearElemento() throws Exception;
+
     private class CrearElemento implements ActionListener {
         @Override
-        public  void actionPerformed(ActionEvent ae) {
-            crearElemento();
+        public void actionPerformed(ActionEvent ae) {
+            try {
+                crearElemento();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

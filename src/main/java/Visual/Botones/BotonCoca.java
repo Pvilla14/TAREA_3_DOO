@@ -10,8 +10,7 @@ public class BotonCoca extends BotonUltra {
     }
 
     @Override
-    public void crearElemento() {
-        System.out.println("Se selecciono una bebida CocaCola");
+    public void crearElemento() throws Exception {
         instanciaMain.SeleccionarProducto(Valoresestaticos.COCA);
     }
 }

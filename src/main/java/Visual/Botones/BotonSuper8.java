@@ -10,8 +10,7 @@ public class BotonSuper8 extends BotonUltra {
     }
 
     @Override
-    public void crearElemento() {
-        System.out.println("Se selecciono el dulce Super8");
+    public void crearElemento() throws Exception {
         instanciaMain.SeleccionarProducto(Valoresestaticos.SUPER8);
     }
 }
