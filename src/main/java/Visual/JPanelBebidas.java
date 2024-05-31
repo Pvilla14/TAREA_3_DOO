@@ -22,6 +22,6 @@ public class JPanelBebidas extends JPanel {
     }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        this.setBackground(Color.WHITE);
+        this.setBackground(Color.BLACK);
     }
 }

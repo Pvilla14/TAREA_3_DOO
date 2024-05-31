@@ -22,6 +22,6 @@ public class JPanelDulces extends JPanel {
     }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        this.setBackground(Color.RED);
+        this.setBackground(Color.BLACK);
     }
 }

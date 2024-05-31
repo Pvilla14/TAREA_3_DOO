@@ -7,8 +7,9 @@ import java.util.ArrayList;
 public class MainVisual {
     private ArrayList<Moneda> billetera = new ArrayList<Moneda>();
     private Valoresestaticos producto = null;
+    static MainVisual instanciamain;
     public static void main(String[] args) {
-        MainVisual instanciamain = new MainVisual();
+        instanciamain = new MainVisual();
         Pantalla pantalla = new Pantalla(instanciamain);
     }
 
