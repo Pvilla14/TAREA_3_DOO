@@ -1,7 +1,7 @@
 package Tarea;
 import java.util.ArrayList;
 
-class Deposito<T> {//clase que permite la creación de depositos de manera generica para bebidas dulces y monedas
+public class Deposito<T> {//clase que permite la creación de depositos de manera generica para bebidas dulces y monedas
 
     private ArrayList<T> lista;//implementación de ArrayList para almacenar los elementos
     /**
@@ -28,5 +28,17 @@ class Deposito<T> {//clase que permite la creación de depositos de manera gener
 
     public Deposito() {//constructor de la clase, incializa el ArrayList
         lista = new ArrayList<>();
+    }
+    public Object getTipo(){
+        T aux = lista.getLast();
+        if(!lista.isEmpty()){
+            return aux;
+        }
+        else{
+            return null;
+        }
+    }
+    public int getTamaño(){
+        return lista.size();
     }
 }
