@@ -1,5 +1,6 @@
 package Visual;
 
+import Tarea.Expendedor;
 import Tarea.Valoresestaticos;
 import Tarea.clasemoneda.Moneda;
 import java.util.ArrayList;
@@ -9,8 +10,9 @@ public class MainVisual {
     private Valoresestaticos producto = null;
     static MainVisual instanciamain;
     public static void main(String[] args) {
+        Expendedor ex = new Expendedor(8);
         instanciamain = new MainVisual();
-        Pantalla pantalla = new Pantalla(instanciamain);
+        Pantalla pantalla = new Pantalla(instanciamain, ex);
     }
 
     public void SeleccionarProducto(Valoresestaticos p) {
