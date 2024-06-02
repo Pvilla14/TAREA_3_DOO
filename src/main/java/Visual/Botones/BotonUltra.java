@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 public abstract class BotonUltra extends JButton {
     private Image foto2;
+    protected int contadorserie = 0;
     protected MainVisual instanciaMain;
     public BotonUltra(MainVisual main){
         super();
@@ -26,8 +27,7 @@ public abstract class BotonUltra extends JButton {
 
     public void setImage(String archivo){
         ImageIcon foto = new ImageIcon(Boton100.class.getResource(archivo));
-        Image scaledImage = foto.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-        foto2 = foto.getImage();
+        foto2= foto.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
     }
 
     public abstract void crearElemento();

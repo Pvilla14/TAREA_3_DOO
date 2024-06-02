@@ -4,7 +4,6 @@ import Tarea.clasemoneda.Moneda100;
 import Visual.MainVisual;
 
 public class Boton100 extends BotonUltra {
-
     public Boton100(MainVisual main) {
         super(main);
         setImage("/Moneda100.png");
@@ -12,7 +11,8 @@ public class Boton100 extends BotonUltra {
 
     @Override
     public void crearElemento() {
+        contadorserie += 1;
         System.out.println("Se selecciono la moneda de 100 pesos");
-        instanciaMain.cargarMoneda(new Moneda100(1));
+        instanciaMain.cargarMoneda(new Moneda100(contadorserie + 100));
     }
 }

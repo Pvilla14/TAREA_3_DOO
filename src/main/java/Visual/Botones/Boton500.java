@@ -11,7 +11,8 @@ public class Boton500 extends BotonUltra {
 
     @Override
     public void crearElemento() {
+        contadorserie += 1;
         System.out.println("Se selecciono la moneda de 500 pesos");
-        instanciaMain.cargarMoneda(new Moneda500(2));
+        instanciaMain.cargarMoneda(new Moneda500(contadorserie + 500));
     }
 }
