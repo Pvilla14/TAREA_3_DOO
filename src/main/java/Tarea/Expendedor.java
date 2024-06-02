@@ -7,13 +7,13 @@ import Tarea.clasebebida.Bebida;
 import Tarea.clasebebida.Fanta;
 import Tarea.clasebebida.Sprite;
 
-class Expendedor {
+public class Expendedor {
     private Deposito<Bebida> coca;//Depositos de Bebida sabor cocacola
     private Deposito<Bebida> sprite;//Depositos de Bebida sabor sprite
     private Deposito<Bebida> fanta;//Depositos de Bebida sabor fanta
     private Deposito<Dulces> serranita;//Depositos de Dulces tipo serranita
-    private Deposito<Dulces> calugas;//Depositos de Dulces tipo snickers
-    private Deposito<Dulces> oreos;//Depositos de Dulces tipo super8
+    private Deposito<Dulces> snickers;//Depositos de Dulces tipo snickers
+    private Deposito<Dulces> super8;//Depositos de Dulces tipo super8
     private Deposito<Moneda> monVu;//Depositos de Monedas para el vuelto
     private Producto Compra;
 
@@ -85,7 +85,7 @@ class Expendedor {
                 Compra = auxDulces;//retorna el producto
 
             case SNICKERS: //retorna un dulce de tipo calugas si no manda excepción
-                auxDulces = calugas.getElemento();
+                auxDulces = snickers.getElemento();
                 if(auxDulces == null){
                     for(int i = producto.getCoste(); i<m.getValor(); i+=100){
                         monVu.getElemento();//calculo de vuelto y obtencion de este
@@ -95,7 +95,7 @@ class Expendedor {
                 Compra = auxDulces;//retorna el producto
 
             case SUPER8: //retorna un dulce de tipo oreos si no manda excepción
-                auxDulces = oreos.getElemento();
+                auxDulces = super8.getElemento();
                 if(auxDulces == null){
                     for(int i = producto.getCoste(); i<m.getValor(); i+=100){
                         monVu.getElemento();//calculo de vuelto y obtencion de este
@@ -111,6 +111,25 @@ class Expendedor {
     public Producto getCompra(){
         return Compra;
     }
+
+    public Deposito getDepositos(int tipo){
+        switch (tipo){
+            case 1:
+                return coca;
+            case 2:
+                return fanta;
+            case 3:
+                return sprite;
+            case 4:
+                return serranita;
+            case 5:
+                return snickers;
+            case 6:
+                return super8;
+            default:
+                return null;
+        }
+    }
     /**
      *@author Pablo Villagrán-Lucas Morales1    1
      * @param a se entrega el parametro para ver la cantidad de elementos con los q se llenan los depositos
@@ -120,12 +139,12 @@ class Expendedor {
         sprite = new Deposito<Bebida>();//tipo sprite
         fanta = new Deposito<Bebida>();//tipo fanta
         serranita = new Deposito<Dulces>();//tipo serranita
-        calugas = new Deposito<Dulces>();//tipo calugas
-        oreos = new Deposito<Dulces>();//tipo oreos
+        snickers = new Deposito<Dulces>();//tipo calugas
+        super8 = new Deposito<Dulces>();//tipo oreos
         monVu = new Deposito<Moneda>();//tipo monedas para el vuelto
 
         if (a > 0){
-            for (int i = 0; i <= a; i++) {//se crean las productos para llenar los depositos
+            for (int i = 0; i < a; i++) {//se crean las productos para llenar los depositos
                 Bebida coc = new CocaCola(i);
                 Bebida spi = new Sprite(i);
                 Bebida fan = new Fanta(i);
@@ -136,8 +155,8 @@ class Expendedor {
                 sprite.addElemento(spi);
                 fanta.addElemento(fan);
                 serranita.addElemento(ser);
-                calugas.addElemento(cal);
-                oreos.addElemento(sup);
+                snickers.addElemento(cal);
+                super8.addElemento(sup);
             }
         }
     }
