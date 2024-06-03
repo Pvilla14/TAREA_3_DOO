@@ -11,9 +11,7 @@ public class JPanelExpendedor extends JPanel {
         expendedor = ex;
         this.setLayout(null);
         this.setBounds(ancho/2,0,ancho/2,largo);
-    }
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
+
         JPanelDeposito depositoCoca = new JPanelDeposito(expendedor.getDepositos(1));
         depositoCoca.setBounds(90,80,200,50);
         depositoCoca.setOpaque(false);
@@ -43,10 +41,16 @@ public class JPanelExpendedor extends JPanel {
         depositoSuper8.setBounds(90,280,200,50);
         depositoSuper8.setOpaque(false);
         this.add(depositoSuper8);
-
+    }
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         ImageIcon foto = new ImageIcon(JPanelExpendedor.class.getResource("/Expendedor.png"));
         g.drawImage(foto.getImage(), 0, 0, Color.BLACK, this);
         Color fondo = new Color(32, 31, 34);
         setBackground(fondo);
+    }
+
+    public void ExpendedorRepintar(){
+        this.repaint();
     }
 }
