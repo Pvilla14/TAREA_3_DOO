@@ -21,10 +21,10 @@ public class Expendedor {
         return monVu.getElemento();//retorna las monedas q se encuentran en el deposito de monedas
     }
     /**
+     * metodo que, de ser posible, compra un producto y lo guarda en Compra
      * @author Pablo Villagrán-Lucas Morales
      * @param m es la moneda con la q se paga, puede ser null, menor, mayor o igual al precio, y en los dos primeros manda una excepción
      * @param producto es el tipo de producto se pide, viene con el precio de este y se instancia en el main
-     * @return un elemento de los depositos dependiendo de lo q se solicite, ya sea dulce o bebida
      * @throws Exception manda la excepción de PagoIncorectoException si se usa una moneda no instanciada o de tipo null
      */
     public void comprarProducto(Moneda m, Valoresestaticos producto) throws Exception{
@@ -114,10 +114,20 @@ public class Expendedor {
         }
     }
 
+    /**
+     * entrega el producto comprado
+     * @author Lucas MOrales
+     * @return el producto q se compro en ComprarProducto
+     */
     public Producto getCompra(){
         return Compra;
     }
 
+    /**
+     * Metodo para obtener uno de los depositos de xpendedor, y poder imprimir en JPanelExpendedor
+     * @param tipo, un int para saber q deposito se busca
+     * @return el deposito dependiendo del número
+     */
     public Deposito getDepositos(int tipo){
         switch (tipo){
             case 1:

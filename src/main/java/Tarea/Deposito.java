@@ -1,4 +1,6 @@
 package Tarea;
+import Tarea.clasemoneda.Moneda;
+
 import java.util.ArrayList;
 
 public class Deposito<T> {//clase que permite la creación de depositos de manera generica para bebidas dulces y monedas
@@ -29,6 +31,13 @@ public class Deposito<T> {//clase que permite la creación de depositos de maner
     public Deposito() {//constructor de la clase, incializa el ArrayList
         lista = new ArrayList<>();
     }
+
+    /**
+     *Metodo para obtener el tipo de clase q tiene guardado el deposito, es decir,
+     * que elementos son los que hay dentro
+     * @author Pablo Villagrán
+     * @return un elemento del arreglo, q se usa para evaluar su clase luego en otras clases
+     */
     public Object getTipo(){
         T aux = lista.getLast();
         if(!lista.isEmpty()){
@@ -41,10 +50,23 @@ public class Deposito<T> {//clase que permite la creación de depositos de maner
     /**
      * Este metodo se cuando se quiere aceder a billetera, para poder ver los tipos de moneda q tiene dentro y poder
      * presentala en pantalla correctamente
+     * @author Pablo Villagrán
+     * @return una lista con las monedas y null si es q no tiene monedas, pero se usa solo si tiene monedas
      * */
-    public ArrayList getDepMonedas(){
-        return lista;
+    public ArrayList getDepMonedas() {
+        if (lista.get(0) instanceof Moneda){
+            return lista;
+        }
+        else{
+            return null;
+        }
     }
+
+    /**
+     * Retorna el largo de la lista, se usa en JPanelDeposito
+     * @author PAblo Villagrán-Lucas Morales
+     * @return im imt con el .size de la lista
+     */
     public int getLargo(){
         return lista.size();
     }

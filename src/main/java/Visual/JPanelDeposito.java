@@ -27,37 +27,37 @@ public class JPanelDeposito extends JPanel {
 
         Object depositado = deposito.getTipo();
 
-        if (depositado instanceof Fanta) {
+        if (depositado.getClass() == Fanta.class) {
             for(int i = 0; i < deposito.getLargo(); i++){
                 ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Fanta.png"));
                 g.drawImage(foto.getImage(), 20*i,0,50,50, this);
             }
         }
-        else if(depositado instanceof CocaCola) {
+        else if(depositado.getClass() == CocaCola.class) {
             for(int i = 0; i < deposito.getLargo(); i++){
                 ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/CocaCola.png"));
                 g.drawImage(foto.getImage(), 20*i,0,50,50,this);
             }
         }
-        else if(depositado instanceof Sprite) {
+        else if(depositado == Sprite.class) {
             for(int i = 0; i < deposito.getLargo(); i++){
                 ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Sprite.png"));
                 g.drawImage(foto.getImage(), 20*i,0,50,50,this);
             }
         }
-        else if(depositado instanceof Serranita) {
+        else if(depositado.getClass() == Serranita.class) {
             for(int i = 0; i < deposito.getLargo(); i++){
                 ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Serranita.png"));
                 g.drawImage(foto.getImage(), 20*i,0,50,50,this);
             }
         }
-        else if(depositado instanceof Super8) {
+        else if(depositado.getClass() == Super8.class) {
             for(int i = 0; i < deposito.getLargo(); i++){
                 ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Super8.png"));
                 g.drawImage(foto.getImage(), 20*i,0,50,50,this);
             }
         }
-        else if(depositado instanceof Snickers) {
+        else if(depositado.getClass() == Snickers.class) {
             for(int i = 0; i < deposito.getLargo(); i++){
                 ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Snickers.png"));
                 g.drawImage(foto.getImage(), 20*i,0,50,50,this);
@@ -68,22 +68,22 @@ public class JPanelDeposito extends JPanel {
             int i = 0;
 
             for(Moneda m : depMonedas ){
-                if(m instanceof Moneda100) {
+                if(m.getClass() == Moneda100.class) {
                     ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Moneda100.png"));
                     g.drawImage(foto.getImage(), 30 * i, 0, 50, 50, this);
                     i++;
                 }
-                else if(m instanceof Moneda500) {
+                else if(m.getClass() == Moneda500.class) {
                     ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Moneda500.png"));
                     g.drawImage(foto.getImage(), 30 * i, 0, 50, 50, this);
                     i++;
                 }
-                else if(m instanceof Moneda1000) {
+                else if(m.getClass() == Moneda1000.class) {
                     ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Moneda1000.png"));
                     g.drawImage(foto.getImage(), 30 * i, 0, 50, 50, this);
                     i++;
                 }
-                else if(m instanceof Moneda1500){
+                else if(m.getClass() == Moneda1500.class){
                     ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Moneda1500.png"));
                     g.drawImage(foto.getImage(), 30*i,0,50,50, this);
                     i++;
