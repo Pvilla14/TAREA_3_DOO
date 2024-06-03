@@ -1,7 +1,5 @@
 package Tarea.clasedulces;
 
-import Tarea.Valoresestaticos;
-
 public class Snickers extends Dulces{
 /**
  * cosntructor que define la serie del dulce
@@ -12,6 +10,11 @@ public class Snickers extends Dulces{
         super(ac);
     }
 
+/**
+ * Metodo q imprime el tipo de producto
+ * @author Pablo Villagrán-Lucas Morales
+ * @return un string con el nombre de la clase
+ */
     public String Consumir() {//personaliza el metodo consumir de la clase dulce
         return (super.Consumir() + "caluga");
     }

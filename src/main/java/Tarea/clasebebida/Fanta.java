@@ -1,7 +1,5 @@
 package Tarea.clasebebida;
 
-import Tarea.Valoresestaticos;
-
 public class Fanta extends Bebida {
 /**
  * cosntructor que define la serie de la bebida
@@ -11,7 +9,11 @@ public class Fanta extends Bebida {
     public Fanta(int ap) {
         super(ap);
     }
-
+    /**
+     * Metodo que imprime el tipo de producto
+     * @author Pablo Villagrán-Lucas Morales
+     * @return un String con el nombre de la clase
+     */
     public String Consumir() {//personaliza el metodo consumir de la clase bebida
         return (super.Consumir() + "pepsi");
     }
