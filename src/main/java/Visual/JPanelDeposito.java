@@ -4,9 +4,9 @@ import Tarea.*;
 import Tarea.clasebebida.*;
 import Tarea.clasedulces.*;
 import Tarea.clasemoneda.*;
-import Visual.Botones.Boton100;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class JPanelDeposito extends JPanel {
     private Deposito<Producto> deposito;
@@ -18,48 +18,76 @@ public class JPanelDeposito extends JPanel {
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+
+        if (deposito == null || deposito.getLargo() == 0) {
+            // Si el depósito es null o está vacío, establecemos un fondo blanco
+            setBackground(Color.WHITE);
+            return;
+        }
+
         Object depositado = deposito.getTipo();
-        Object aux;
-        if (depositado.getClass() == (aux = new Fanta(-1)).getClass()) {
-            for(int i = 0; i < deposito.getTamaño(); i++){
-                ImageIcon foto = new ImageIcon(Boton100.class.getResource("/Fanta.png"));
-                g.drawImage(foto.getImage(), 20*i,0,50,50, Color.black,this);
+
+        if (depositado instanceof Fanta) {
+            for(int i = 0; i < deposito.getLargo(); i++){
+                ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Fanta.png"));
+                g.drawImage(foto.getImage(), 20*i,0,50,50, this);
             }
         }
-        else if(depositado.getClass() == (aux = new CocaCola(-1)).getClass()) {
-            for(int i = 0; i < deposito.getTamaño(); i++){
-                ImageIcon foto = new ImageIcon(Boton100.class.getResource("/CocaCola.png"));
-                g.drawImage(foto.getImage(), 20*i,0,50,50, Color.black,this);
+        else if(depositado instanceof CocaCola) {
+            for(int i = 0; i < deposito.getLargo(); i++){
+                ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/CocaCola.png"));
+                g.drawImage(foto.getImage(), 20*i,0,50,50,this);
             }
         }
-        else if(depositado.getClass() == (aux = new Sprite(-1)).getClass()) {
-            for(int i = 0; i < deposito.getTamaño(); i++){
-                ImageIcon foto = new ImageIcon(Boton100.class.getResource("/Sprite.png"));
-                g.drawImage(foto.getImage(), 20*i,0,50,50, Color.black,this);
+        else if(depositado instanceof Sprite) {
+            for(int i = 0; i < deposito.getLargo(); i++){
+                ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Sprite.png"));
+                g.drawImage(foto.getImage(), 20*i,0,50,50,this);
             }
         }
-        else if(depositado.getClass() == (aux = new Serranita(-1)).getClass()) {
-            for(int i = 0; i < deposito.getTamaño(); i++){
-                ImageIcon foto = new ImageIcon(Boton100.class.getResource("/Serranita.png"));
-                g.drawImage(foto.getImage(), 20*i,0,50,50, Color.black,this);
+        else if(depositado instanceof Serranita) {
+            for(int i = 0; i < deposito.getLargo(); i++){
+                ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Serranita.png"));
+                g.drawImage(foto.getImage(), 20*i,0,50,50,this);
             }
         }
-        else if(depositado.getClass() == (aux = new Super8(-1)).getClass()) {
-            for(int i = 0; i < deposito.getTamaño(); i++){
-                ImageIcon foto = new ImageIcon(Boton100.class.getResource("/Super8.png"));
-                g.drawImage(foto.getImage(), 20*i,0,50,50, Color.black,this);
+        else if(depositado instanceof Super8) {
+            for(int i = 0; i < deposito.getLargo(); i++){
+                ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Super8.png"));
+                g.drawImage(foto.getImage(), 20*i,0,50,50,this);
             }
         }
-        else if(depositado.getClass() == (aux = new Snickers(-1)).getClass()) {
-            for(int i = 0; i < deposito.getTamaño(); i++){
-                ImageIcon foto = new ImageIcon(Boton100.class.getResource("/Snickers.png"));
-                g.drawImage(foto.getImage(), 20*i,0,50,50, Color.black,this);
+        else if(depositado instanceof Snickers) {
+            for(int i = 0; i < deposito.getLargo(); i++){
+                ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Snickers.png"));
+                g.drawImage(foto.getImage(), 20*i,0,50,50,this);
             }
         }
-        else if(depositado.getClass() == (aux = new Moneda100(-0).getClass())){
-            for(int i = 0; i < deposito.getTamaño(); i++){
-                ImageIcon foto = new ImageIcon(Boton100.class.getResource("/Moneda100.png"));
-                g.drawImage(foto.getImage(), 20*i,0,50,50, Color.black,this);
+        else if(depositado instanceof Moneda){
+            ArrayList<Moneda> depMonedas = deposito.getDepMonedas();
+            int i = 0;
+
+            for(Moneda m : depMonedas ){
+                if(m instanceof Moneda100) {
+                    ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Moneda100.png"));
+                    g.drawImage(foto.getImage(), 30 * i, 0, 50, 50, this);
+                    i++;
+                }
+                else if(m instanceof Moneda500) {
+                    ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Moneda500.png"));
+                    g.drawImage(foto.getImage(), 30 * i, 0, 50, 50, this);
+                    i++;
+                }
+                else if(m instanceof Moneda1000) {
+                    ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Moneda1000.png"));
+                    g.drawImage(foto.getImage(), 30 * i, 0, 50, 50, this);
+                    i++;
+                }
+                else if(m instanceof Moneda1500){
+                    ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Moneda1500.png"));
+                    g.drawImage(foto.getImage(), 30*i,0,50,50, this);
+                    i++;
+                }
             }
         }
         else{
