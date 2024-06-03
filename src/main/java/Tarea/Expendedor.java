@@ -54,6 +54,7 @@ public class Expendedor {
                     monVu.addElemento(m);
                 }
                 Compra = coca.getElemento();//retorna el producto
+                break;
 
             case SPRITE: //retorna una bebida de tipo sprite si no manda excepción
                 if (sprite.getElemento() == null){
@@ -63,6 +64,7 @@ public class Expendedor {
                     monVu.addElemento(m);
                 }
                 Compra = sprite.getElemento();//retorna el producto
+                break;
 
             case FANTA: //retorna una bebida de tipo fanta si no manda excepción
                 auxBebida = fanta.getElemento();
@@ -73,6 +75,7 @@ public class Expendedor {
                     monVu.addElemento(m);
                 }
                 Compra = auxBebida;//retorna el producto
+                break;
 
             case SERRANITA: //retorna un dulce de tipo serranita si no manda excepción
                 auxDulces = serranita.getElemento();
@@ -82,7 +85,8 @@ public class Expendedor {
                     }
                     monVu.addElemento(m);
                 }
-                Compra = auxDulces;//retorna el producto
+                Compra = auxDulces;//retorna el producto}
+                break;
 
             case SNICKERS: //retorna un dulce de tipo calugas si no manda excepción
                 auxDulces = snickers.getElemento();
@@ -93,6 +97,7 @@ public class Expendedor {
                     monVu.addElemento(m);
                 }
                 Compra = auxDulces;//retorna el producto
+                break;
 
             case SUPER8: //retorna un dulce de tipo oreos si no manda excepción
                 auxDulces = super8.getElemento();
@@ -103,6 +108,7 @@ public class Expendedor {
                     monVu.addElemento(m);
                 }
                 Compra = auxDulces;//retorna el producto
+                break;
 
             default: Compra = null;//no retorna nada en caso de que no se escojiera un tipo de producto
         }

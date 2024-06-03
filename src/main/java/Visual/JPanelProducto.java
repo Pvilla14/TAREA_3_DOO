@@ -30,6 +30,6 @@ public class JPanelProducto extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        this.setBackground(Color.BLACK);
+        this.setOpaque(false);
     }
 }

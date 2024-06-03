@@ -38,7 +38,14 @@ public class Deposito<T> {//clase que permite la creación de depositos de maner
             return null;
         }
     }
-    public int getTamaño(){
+    /**
+     * Este metodo se cuando se quiere aceder a billetera, para poder ver los tipos de moneda q tiene dentro y poder
+     * presentala en pantalla correctamente
+     * */
+    public ArrayList getDepMonedas(){
+        return lista;
+    }
+    public int getLargo(){
         return lista.size();
     }
 }
