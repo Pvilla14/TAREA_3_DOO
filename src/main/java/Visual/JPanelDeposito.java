@@ -39,7 +39,7 @@ public class JPanelDeposito extends JPanel {
                 g.drawImage(foto.getImage(), 20*i,0,50,50,this);
             }
         }
-        else if(depositado == Sprite.class) {
+        else if(depositado.getClass() == Sprite.class) {
             for(int i = 0; i < deposito.getLargo(); i++){
                 ImageIcon foto = new ImageIcon(JPanelDeposito.class.getResource("/Sprite.png"));
                 g.drawImage(foto.getImage(), 20*i,0,50,50,this);

@@ -11,7 +11,7 @@ public class Main {
         v = Valoresestaticos.COCA;//se define el producto que se quiere comprar
         m = new Moneda100(1);//se le da el valor a la moneda
         try{
-            c = new Comprador(m, v, exp);//se define el comprador usando las instancias de las otras clases
+            c = new Comprador(exp.getVuelto(), v, exp);//se define el comprador usando las instancias de las otras clases
             System.out.println(c.queConsumiste() + ", " + c.cuantoVuelto());//se imprimen los resultados si no se toma con ninguna excepción
         }catch(NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException | ProductoInexistenteException e){
             System.out.println(e.getMessage());//en caso de encontrar alguna excepción llama a la clase Execption para q imprima el mensaje que nosotros definimos en cada clase
@@ -20,7 +20,7 @@ public class Main {
         v = null;//se define el producto que se quiere comprar
         m = new Moneda100(1);//se le da el valor a la moneda
         try{
-            c = new Comprador(m, v, exp);//se define el comprador usando las instancias de las otras clases
+            c = new Comprador(exp.getVuelto(), v, exp);//se define el comprador usando las instancias de las otras clases
             System.out.println(c.queConsumiste() + ", " + c.cuantoVuelto());//se imprimen los resultados si no se toma con ninguna excepción
         }catch(NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException | ProductoInexistenteException e){
             System.out.println(e.getMessage());//en caso de encontrar alguna excepción llama a la clase Execption para q imprima el mensaje que nosotros definimos en cada clase
@@ -29,7 +29,7 @@ public class Main {
         v = Valoresestaticos.SERRANITA;//se define el producto que se quiere comprar
         m = new Moneda500(2);//se le da el valor a la moneda
         try{
-            c = new Comprador(m, v, exp);//se define el comprador usando las instancias de las otras clases
+            c = new Comprador(exp.getVuelto(), v, exp);//se define el comprador usando las instancias de las otras clases
             System.out.println(c.queConsumiste() + ", " + c.cuantoVuelto());//se imprimen los resultados si no se toma con ninguna excepción
         }catch(NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException | ProductoInexistenteException e){
             System.out.println(e.getMessage());//en caso de encontrar alguna excepción llama a la clase Execption para q imprima el mensaje que nosotros definimos en cada clase
@@ -38,7 +38,7 @@ public class Main {
         v = Valoresestaticos.COCA;//se define el producto que se quiere comprar
         m = null;//se le da el valor a la moneda
         try{
-            c = new Comprador(m, v, exp);//se define el comprador usando las instancias de las otras clases
+            c = new Comprador(exp.getVuelto(), v, exp);//se define el comprador usando las instancias de las otras clases
             System.out.println(c.queConsumiste() + ", " + c.cuantoVuelto());//se imprimen los resultados si no se toma con ninguna excepción
         }catch(NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException | ProductoInexistenteException e){
             System.out.println(e.getMessage());//en caso de encontrar alguna excepción llama a la clase Execption para q imprima el mensaje que nosotros definimos en cada clase
@@ -46,7 +46,7 @@ public class Main {
         v = Valoresestaticos.COCA;//se define el producto que se quiere comprar
         m = new Moneda100(1);//se le da el valor a la moneda
         try{
-            c = new Comprador(m, v, exp);//se define el comprador usando las instancias de las otras clases
+            c = new Comprador(exp.getVuelto(), v, exp);//se define el comprador usando las instancias de las otras clases
             System.out.println(c.queConsumiste() + ", " + c.cuantoVuelto());//se imprimen los resultados si no se toma con ninguna excepción
         }catch(NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException | ProductoInexistenteException e){
             System.out.println(e.getMessage());//en caso de encontrar alguna excepción llama a la clase Execption para q imprima el mensaje que nosotros definimos en cada clase
@@ -56,7 +56,7 @@ public class Main {
         v = Valoresestaticos.COCA;//se define el producto que se quiere comprar
         m = new Moneda100(1);//se le da el valor a la moneda
         try{
-            c = new Comprador(m, v, exp);//se define el comprador usando las instancias de las otras clases
+            c = new Comprador(exp.getVuelto(), v, exp);//se define el comprador usando las instancias de las otras clases
             System.out.println(c.queConsumiste() + ", " + c.cuantoVuelto());//se imprimen los resultados si no se toma con ninguna excepción
         }catch(NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException | ProductoInexistenteException e){
             System.out.println(e.getMessage());//en caso de encontrar alguna excepción llama a la clase Execption para q imprima el mensaje que nosotros definimos en cada clase

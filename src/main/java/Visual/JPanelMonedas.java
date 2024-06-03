@@ -23,9 +23,6 @@ public class JPanelMonedas extends JPanel {
         boton1500.setBounds(140, 120, 100, 100);
         this.add(boton1500);
 
-        BotonCompra compra = new BotonCompra(main.getBilletera(), Valoresestaticos.COCA);
-        compra.setBounds(260, 10, 210, 210);
-        this.add(compra);
         JPanelProducto Productos = new JPanelProducto(main);
         Productos.setBounds(50,250,400,600);
         this.add(Productos);
@@ -37,6 +34,6 @@ public class JPanelMonedas extends JPanel {
     }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        setBackground(Color.BLACK);
+        setOpaque(false);
     }
 }

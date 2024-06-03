@@ -1,7 +1,6 @@
 package Visual.Botones;
 
 import Tarea.clasemoneda.Moneda100;
-import Visual.JPanelExpendedor;
 import Visual.JPanelMonedas;
 import Visual.MainVisual;
 

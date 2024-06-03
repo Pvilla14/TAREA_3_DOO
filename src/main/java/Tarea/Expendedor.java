@@ -17,29 +17,29 @@ public class Expendedor {
     private Deposito<Moneda> monVu;//Depositos de Monedas para el vuelto
     private Producto Compra;
 
-    public Moneda getVuelto() throws Exception{
-        return monVu.getElemento();//retorna las monedas q se encuentran en el deposito de monedas
+    public Deposito<Moneda> getVuelto() throws Exception{
+        return monVu;//retorna las monedas q se encuentran en el deposito de monedas
     }
     /**
      * metodo que, de ser posible, compra un producto y lo guarda en Compra
      * @author Pablo Villagrán-Lucas Morales
-     * @param m es la moneda con la q se paga, puede ser null, menor, mayor o igual al precio, y en los dos primeros manda una excepción
+     * @param saldo es el valor total de las monedas q hay en  la billetera
      * @param producto es el tipo de producto se pide, viene con el precio de este y se instancia en el main
      * @throws Exception manda la excepción de PagoIncorectoException si se usa una moneda no instanciada o de tipo null
      */
-    public void comprarProducto(Moneda m, Valoresestaticos producto) throws Exception{
-        if(m == null){//si la moneda no tiene valor o no está definida manda una excepcion del tipo PagoIncorrectoException
+    public void comprarProducto(int saldo, Valoresestaticos producto, Deposito<Moneda> billetera) throws Exception{
+        if(saldo == 0 || billetera == null){//si la moneda no tiene valor o no está definida manda una excepcion del tipo PagoIncorrectoException
             throw new PagoIncorrectoException();
         }
         if(producto == null){//manda la excepción si se intenta comprar un elemento null o algo no definido en Valoresestaticos
             throw new ProductoInexistenteException();
         }
-        else if( m.getValor() < producto.getCoste()){//si el valor de la moneda el menor al precio del producto manda un excepción del tipo
-            monVu.addElemento(m);               //PagoInsuficienteException
+        else if( saldo < producto.getCoste()){//si el valor de la moneda el menor al precio del producto manda un excepción del tipo
+            monVu = billetera;               //PagoInsuficienteException
             throw new PagoInsuficienteException();
         }
-
-        for(int i = producto.getCoste(); i<m.getValor(); i+=100){//agrega monedas hasta que la cantidad sea igual a la diferencia entre el
+        for(int i = producto.getCoste(); i < saldo; i+= 100){//agrega monedas hasta que la cantidad sea igual a la diferencia entre el
+            monVu = null;
             monVu.addElemento(new Moneda100(1));                  //precio del producto y el valor de la moneda dada
         }
         Bebida auxBebida = null;
@@ -47,21 +47,19 @@ public class Expendedor {
 
         switch (producto) {//segun el tipo de producto q se escogio entra a los distintos swich
             case COCA: //retorna una bebida de tipo cocacola si no manda excepción
-                if (coca.getElemento() == null){
-                    for (int i = producto.getCoste(); i < m.getValor(); i += 100){
-                        monVu.getElemento();//calculo de vuelto y obtencion de este
-                    }
-                    monVu.addElemento(m);
+                auxBebida = coca.getElemento();
+                if (auxBebida == null){
+                    throw new NoHayProductoException();
                 }
-                Compra = coca.getElemento();//retorna el producto
+                else{
+                    Compra = auxBebida;//guarda el producto en el deppsoto del producto
+                }
                 break;
 
             case SPRITE: //retorna una bebida de tipo sprite si no manda excepción
-                if (sprite.getElemento() == null){
-                    for (int i = producto.getCoste(); i < m.getValor(); i += 100){
-                        monVu.getElemento();//calculo de vuelto y obtencion de este
-                    }
-                    monVu.addElemento(m);
+                auxBebida = sprite.getElemento();
+                if (auxBebida == null) {
+                    throw new NoHayProductoException();
                 }
                 Compra = sprite.getElemento();//retorna el producto
                 break;
@@ -69,21 +67,17 @@ public class Expendedor {
             case FANTA: //retorna una bebida de tipo fanta si no manda excepción
                 auxBebida = fanta.getElemento();
                 if(auxBebida == null){
-                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
-                        monVu.getElemento();//calculo de vuelto y obtencion de este
-                    }
-                    monVu.addElemento(m);
+                    throw new NoHayProductoException();
                 }
-                Compra = auxBebida;//retorna el producto
+                else {
+                    Compra = auxBebida;//retorna el producto
+                }
                 break;
 
             case SERRANITA: //retorna un dulce de tipo serranita si no manda excepción
                 auxDulces = serranita.getElemento();
                 if(auxDulces == null){
-                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
-                        monVu.getElemento();//calculo de vuelto y obtencion de este
-                    }
-                    monVu.addElemento(m);
+                    throw new NoHayProductoException();
                 }
                 Compra = auxDulces;//retorna el producto}
                 break;
@@ -91,10 +85,7 @@ public class Expendedor {
             case SNICKERS: //retorna un dulce de tipo calugas si no manda excepción
                 auxDulces = snickers.getElemento();
                 if(auxDulces == null){
-                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
-                        monVu.getElemento();//calculo de vuelto y obtencion de este
-                    }
-                    monVu.addElemento(m);
+                    throw new NoHayProductoException();
                 }
                 Compra = auxDulces;//retorna el producto
                 break;
@@ -102,15 +93,12 @@ public class Expendedor {
             case SUPER8: //retorna un dulce de tipo oreos si no manda excepción
                 auxDulces = super8.getElemento();
                 if(auxDulces == null){
-                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
-                        monVu.getElemento();//calculo de vuelto y obtencion de este
-                    }
-                    monVu.addElemento(m);
+                    throw new NoHayProductoException();
                 }
                 Compra = auxDulces;//retorna el producto
                 break;
 
-            default: Compra = null;//no retorna nada en caso de que no se escojiera un tipo de producto
+            default: throw new ProductoInexistenteException();//no retorna nada en caso de que no se escojiera un tipo de producto
         }
     }
 
