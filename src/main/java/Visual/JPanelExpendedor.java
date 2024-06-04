@@ -1,14 +1,20 @@
 package Visual;
 
+import Tarea.Deposito;
 import Tarea.Expendedor;
+import Tarea.Valoresestaticos;
+import Tarea.clasemoneda.Moneda;
+
 import java.awt.*;
 import javax.swing.*;
 
 public class JPanelExpendedor extends JPanel {
     private Expendedor expendedor;
-    public JPanelExpendedor(MainVisual main, int largo, int ancho, Expendedor ex) {
+    private Valoresestaticos producto;
+    public Deposito<Moneda> billetera = new Deposito<Moneda>() ;
+    public JPanelExpendedor(int largo, int ancho) {
         super();
-        expendedor = ex;
+        expendedor = new Expendedor(5) ;
         this.setLayout(null);
         this.setBounds(ancho/2,0,ancho/2,largo);
 
@@ -42,6 +48,7 @@ public class JPanelExpendedor extends JPanel {
         depositoSuper8.setOpaque(false);
         this.add(depositoSuper8);
     }
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         ImageIcon foto = new ImageIcon(JPanelExpendedor.class.getResource("/Expendedor.png"));
@@ -49,8 +56,21 @@ public class JPanelExpendedor extends JPanel {
         Color fondo = new Color(32, 31, 34);
         setBackground(fondo);
     }
-
-    public void ExpendedorRepintar(){
-        this.repaint();
+    public void SeleccionarProducto(Valoresestaticos p) {
+        producto = p;
+        System.out.println("Producto: " + producto);
+    }
+    public void cargarMoneda(Moneda m){
+        billetera.addElemento(m);
+        System.out.println("Moneda: " + m + "Valor" +m.getValor());
+    }
+    public Valoresestaticos getCompra() {
+        return producto;
+    }
+    public Deposito<Moneda> getBilletera(){
+        return billetera;
+    }
+    public Expendedor getExpendedor(){
+        return expendedor;
     }
 }

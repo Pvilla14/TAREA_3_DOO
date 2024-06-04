@@ -7,7 +7,7 @@ import javax.swing.*;
 public class Pantalla extends JFrame{
     public JPanelExpendedor maquinaexpendedora;
     public JPanelMonedas maquinabotones;
-    public Pantalla(MainVisual main, Expendedor ex) {
+    public Pantalla() {
         super();
         this.setSize(1000,800);
         int ancho = this.getWidth();
@@ -15,13 +15,13 @@ public class Pantalla extends JFrame{
         setTitle("Pantalla");
         this.setLayout(null);
 
-        maquinaexpendedora = new JPanelExpendedor(main, largo, ancho, ex);
+        maquinaexpendedora = new JPanelExpendedor(largo, ancho);
         this.add(maquinaexpendedora);
 
-        maquinabotones = new JPanelMonedas(main, largo, ancho, maquinaexpendedora);
+        maquinabotones = new JPanelMonedas(largo, ancho, maquinaexpendedora);
         this.add(maquinabotones);
 
-        BotonCompra compra = new BotonCompra(main.getBilletera(), main.producto, ex, maquinabotones, maquinaexpendedora);
+        BotonCompra compra = new BotonCompra(maquinabotones, maquinaexpendedora);
         compra.setBounds(260, 10, 210, 210);
         this.add(compra);
 

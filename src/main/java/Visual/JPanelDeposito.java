@@ -9,8 +9,8 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class JPanelDeposito extends JPanel {
-    private Deposito<Producto> deposito;
-    public JPanelDeposito(Deposito<Producto> depo){
+    private Deposito deposito;
+    public JPanelDeposito(Deposito depo){
         super();
         deposito = depo;
         this.setLayout(null);

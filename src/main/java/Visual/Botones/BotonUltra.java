@@ -1,5 +1,7 @@
 package Visual.Botones;
 
+import Visual.JPanelExpendedor;
+import Visual.JPanelMonedas;
 import Visual.MainVisual;
 import javax.swing.*;
 import java.awt.*;
@@ -9,10 +11,12 @@ import java.awt.event.ActionListener;
 public abstract class BotonUltra extends JButton {
     private Image foto2;
     protected int contadorserie = 0;
-    protected MainVisual instanciaMain;
-    public BotonUltra(MainVisual main){
+    protected JPanelExpendedor maquina;
+    protected JPanelMonedas botones;
+    public BotonUltra(JPanelExpendedor expendedor, JPanelMonedas botonesMonedas){
         super();
-        instanciaMain = main;
+        maquina = expendedor;
+        botones = botonesMonedas;
         // Configurar el ActionListener
         this.addActionListener(new BotonUltra.CrearElemento());
 

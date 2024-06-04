@@ -1,18 +1,18 @@
 package Visual.Botones;
 
-
 import Tarea.Valoresestaticos;
-import Visual.MainVisual;
+import Visual.JPanelExpendedor;
+import Visual.JPanelMonedas;
 
 public class BotonFanta extends BotonUltra {
-    public BotonFanta(MainVisual main) {
-        super(main);
+    public BotonFanta(JPanelExpendedor expendedor, JPanelMonedas botonesMonedas) {
+        super(expendedor, botonesMonedas);
         setImage("/Fanta.png");
     }
 
     @Override
     public void crearElemento() {
         System.out.println("Se selecciono una bebida Fanta");
-        instanciaMain.SeleccionarProducto(Valoresestaticos.FANTA);
+        maquina.SeleccionarProducto(Valoresestaticos.FANTA);
     }
 }
