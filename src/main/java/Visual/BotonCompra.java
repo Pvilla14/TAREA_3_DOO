@@ -43,7 +43,7 @@ public class BotonCompra extends JButton {
             }
             if(totaldinero >= productoseleccionado.getCoste()){
                 try {
-                    Comprador sujeto = new Comprador(visualExpendedor.billetera, productoseleccionado, maquina);
+                    Comprador sujeto = new Comprador(billeteralocal, productoseleccionado, maquina);
                 } catch (NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException | ProductoInexistenteException ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
@@ -51,14 +51,13 @@ public class BotonCompra extends JButton {
             else {
                 JOptionPane.showMessageDialog(null, "Dinero insuficiente para realizar la compra.");
             }
-            visualExpendedor.billetera = maquina.getVuelto();
+            billeteralocal = maquina.getVuelto();
             // Actualizar los paneles
             visualBotones.repaint();
             visualExpendedor.revalidate();
             visualExpendedor.repaint();
 
         }
-
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
