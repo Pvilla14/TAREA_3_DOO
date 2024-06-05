@@ -17,7 +17,6 @@ public class Pantalla extends JFrame{
 
         maquinaexpendedora = new JPanelExpendedor(largo, ancho);
         this.add(maquinaexpendedora);
-
         maquinabotones = new JPanelMonedas(largo, ancho, maquinaexpendedora);
         this.add(maquinabotones);
 

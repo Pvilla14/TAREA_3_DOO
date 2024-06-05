@@ -47,14 +47,14 @@ public class JPanelExpendedor extends JPanel {
         depositoSuper8.setOpaque(false);
         this.add(depositoSuper8);
 
-        JPanelDeposito depositoVuelto = new JPanelDeposito(expendedor.getVuelto());
-        depositoVuelto.setBounds(90, 530, 200,50);
-        this.add(depositoVuelto);
+        //JPanelDeposito depositoVuelto = new JPanelDeposito(expendedor.getVuelto());
+        //depositoVuelto.setBounds(90, 530, 200,50);
+        //this.add(depositoVuelto);
 
-        BotonVuelto obtVuelto = new BotonVuelto(expendedor, this, depositoVuelto);
-        obtVuelto.setBounds(290, 80, 40,40);
-        obtVuelto.setOpaque(false);
-        this.add(obtVuelto);
+        //BotonVuelto obtVuelto = new BotonVuelto(expendedor, this, jframe, depositoVuelto);
+        //obtVuelto.setBounds(290, 80, 40,40);
+        //obtVuelto.setOpaque(false);
+        //this.add(obtVuelto);
     }
 
     public void paintComponent(Graphics g) {
@@ -64,20 +64,25 @@ public class JPanelExpendedor extends JPanel {
         Color fondo = new Color(32, 31, 34);
         setBackground(fondo);
     }
+
     public void SeleccionarProducto(Valoresestaticos p) {
         producto = p;
         System.out.println("Producto: " + producto);
     }
+
     public void cargarMoneda(Moneda m){
         billetera.addElemento(m);
         System.out.println("Moneda: " + m + "Valor" +m.getValor());
     }
+
     public Valoresestaticos getCompra() {
         return producto;
     }
+
     public Deposito<Moneda> getBilletera(){
         return billetera;
     }
+
     public Expendedor getExpendedor(){
         return expendedor;
     }

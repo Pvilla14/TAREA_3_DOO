@@ -37,15 +37,16 @@ public class Expendedor {
         if(producto == null){//manda la excepción si se intenta comprar un elemento null o algo no definido en Valoresestaticos
             throw new ProductoInexistenteException();
         }
-        else if( saldo < producto.getCoste()){//si el valor de la moneda el menor al precio del producto manda un excepción del tipo
-            monVu = billetera;//PagoInsuficienteException
+        if( saldo < producto.getCoste()){//si el valor de la moneda el menor al precio del producto manda un excepción del tipo
+            for(int i = 0; i < saldo; i+= 100){//agrega monedas hasta que la cantidad sea igual a la diferencia entre el
+                monVu.addElemento(new Moneda100(1));                  //precio del producto y el valor de la moneda dada
+            }
             billetera.vaciar();
             throw new PagoInsuficienteException();
         }
-        monVu.vaciar();
         billetera.vaciar();
         for(int i = producto.getCoste(); i < saldo; i+= 100){//agrega monedas hasta que la cantidad sea igual a la diferencia entre el
-            monVu.addElemento(new Moneda100(1));                  //precio del producto y el valor de la moneda dada
+            billetera.addElemento(new Moneda100(1));                  //precio del producto y el valor de la moneda dada
         }
 
         Bebida auxBebida = null;
