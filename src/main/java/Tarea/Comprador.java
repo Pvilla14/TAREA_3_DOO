@@ -38,7 +38,7 @@ public class Comprador {
         } else {
             throw new NoHayProductoException();//si es null manda la excepción de que no hay dicho producto en los depositos de este expendedor
         }
-        billeteralocal = exp.getVuelto();
+        billetera = exp.getVuelto();
     }
     public void getSaldo() {
         if(billeteralocal.getLargo() != 0) {

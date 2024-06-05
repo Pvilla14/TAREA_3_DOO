@@ -3,8 +3,7 @@ package Visual;
 import Tarea.Deposito;
 import Tarea.Expendedor;
 import Tarea.Valoresestaticos;
-import Tarea.clasemoneda.Moneda;
-
+import Tarea.clasemoneda.*;
 import java.awt.*;
 import javax.swing.*;
 
@@ -47,6 +46,15 @@ public class JPanelExpendedor extends JPanel {
         depositoSuper8.setBounds(90,280,200,50);
         depositoSuper8.setOpaque(false);
         this.add(depositoSuper8);
+
+        JPanelDeposito depositoVuelto = new JPanelDeposito(expendedor.getVuelto());
+        depositoVuelto.setBounds(90, 530, 200,50);
+        this.add(depositoVuelto);
+
+        BotonVuelto obtVuelto = new BotonVuelto(expendedor, this, depositoVuelto);
+        obtVuelto.setBounds(290, 80, 40,40);
+        obtVuelto.setOpaque(false);
+        this.add(obtVuelto);
     }
 
     public void paintComponent(Graphics g) {

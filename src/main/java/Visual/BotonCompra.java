@@ -40,7 +40,6 @@ public class BotonCompra extends JButton {
                 for (Moneda m : monedero) {
                     totaldinero += m.getValor();
                 }
-                System.out.println(totaldinero);
             }
             if(totaldinero >= productoseleccionado.getCoste()){
                 try {

@@ -37,7 +37,7 @@ public abstract class BotonUltra extends JButton {
     public abstract void crearElemento();
     private class CrearElemento implements ActionListener {
         @Override
-        public  void actionPerformed(ActionEvent ae) {
+        public void actionPerformed(ActionEvent ae) {
             crearElemento();
         }
     }

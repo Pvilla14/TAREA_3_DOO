@@ -17,8 +17,11 @@ public class Expendedor {
     private Deposito<Moneda> monVu;//Depositos de Monedas para el vuelto
     private Producto Compra;
 
-    public Deposito<Moneda> getVuelto() throws Exception{
+    public Deposito<Moneda> getVuelto(){
         return monVu;//retorna las monedas q se encuentran en el deposito de monedas
+    }
+    public void vaciarVuelto(){
+        monVu.vaciar();
     }
     /**
      * metodo que, de ser posible, compra un producto y lo guarda en Compra
@@ -35,13 +38,16 @@ public class Expendedor {
             throw new ProductoInexistenteException();
         }
         else if( saldo < producto.getCoste()){//si el valor de la moneda el menor al precio del producto manda un excepción del tipo
-            monVu = billetera;               //PagoInsuficienteException
+            monVu = billetera;//PagoInsuficienteException
+            billetera.vaciar();
             throw new PagoInsuficienteException();
         }
+        monVu.vaciar();
+        billetera.vaciar();
         for(int i = producto.getCoste(); i < saldo; i+= 100){//agrega monedas hasta que la cantidad sea igual a la diferencia entre el
-            monVu = null;
             monVu.addElemento(new Moneda100(1));                  //precio del producto y el valor de la moneda dada
         }
+
         Bebida auxBebida = null;
         Dulces auxDulces = null;
 
