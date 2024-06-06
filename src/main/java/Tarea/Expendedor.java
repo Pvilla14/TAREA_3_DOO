@@ -3,9 +3,8 @@ import Tarea.clasebebida.CocaCola;
 import Tarea.clasemoneda.*;
 import Tarea.mensajeerror.*;
 import Tarea.clasedulces.*;
-import Tarea.clasebebida.Bebida;
-import Tarea.clasebebida.Fanta;
-import Tarea.clasebebida.Sprite;
+import Tarea.clasebebida.*;
+import Visual.JPanelMonedas;
 
 public class Expendedor {
     private Deposito<Bebida> coca;//Depositos de Bebida sabor cocacola
@@ -142,6 +141,26 @@ public class Expendedor {
                 return null;
         }
     }
+
+    public void recargarexpendedor(int a){
+        coca.vaciar();
+        sprite.vaciar();
+        fanta.vaciar();
+        serranita.vaciar();
+        snickers.vaciar();
+        super8.vaciar();
+        if (a > 0){
+            for (int i = 0; i < a; i++) {//se crean las productos para llenar los depositos
+                coca.addElemento(new CocaCola(i));//se agregan los productos a sus respectivos depositos
+                sprite.addElemento(new Sprite(i));
+                fanta.addElemento(new Fanta(i));
+                serranita.addElemento(new Serranita(i));
+                snickers.addElemento(new Snickers(i));
+                super8.addElemento(new Super8(i));
+            }
+        }
+    }
+
     /**
      *@author Pablo Villagrán-Lucas Morales1    1
      * @param a se entrega el parametro para ver la cantidad de elementos con los q se llenan los depositos
@@ -151,24 +170,18 @@ public class Expendedor {
         sprite = new Deposito<Bebida>();//tipo sprite
         fanta = new Deposito<Bebida>();//tipo fanta
         serranita = new Deposito<Dulces>();//tipo serranita
-        snickers = new Deposito<Dulces>();//tipo calugas
-        super8 = new Deposito<Dulces>();//tipo oreos
+        snickers = new Deposito<Dulces>();//tipo snickers
+        super8 = new Deposito<Dulces>();//tipo super8
         monVu = new Deposito<Moneda>();//tipo monedas para el vuelto
 
         if (a > 0){
             for (int i = 0; i < a; i++) {//se crean las productos para llenar los depositos
-                Bebida coc = new CocaCola(i);
-                Bebida spi = new Sprite(i);
-                Bebida fan = new Fanta(i);
-                Dulces ser = new Serranita(i);
-                Dulces cal = new Snickers(i);
-                Dulces sup = new Super8(i);
-                coca.addElemento(coc);//se agregan los productos a sus respectivos depositos
-                sprite.addElemento(spi);
-                fanta.addElemento(fan);
-                serranita.addElemento(ser);
-                snickers.addElemento(cal);
-                super8.addElemento(sup);
+                coca.addElemento(new CocaCola(i));//se agregan los productos a sus respectivos depositos
+                sprite.addElemento(new Sprite(i));
+                fanta.addElemento(new Fanta(i));
+                serranita.addElemento(new Serranita(i));
+                snickers.addElemento(new Snickers(i));
+                super8.addElemento(new Super8(i));
             }
         }
     }

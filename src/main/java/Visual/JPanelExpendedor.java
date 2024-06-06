@@ -5,15 +5,18 @@ import Tarea.Expendedor;
 import Tarea.Valoresestaticos;
 import Tarea.clasemoneda.*;
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class JPanelExpendedor extends JPanel {
-    private Expendedor expendedor;
+    public Expendedor expendedor;
     private Valoresestaticos producto;
     public Deposito<Moneda> billetera = new Deposito<Moneda>() ;
+    private int cantproductos = 6;
+
     public JPanelExpendedor(int largo, int ancho, Pantalla jframe) {
         super();
-        expendedor = new Expendedor(5) ;
+        expendedor = new Expendedor(cantproductos) ;
         this.setLayout(null);
         this.setBounds(ancho/2,0,ancho/2,largo);
 
@@ -55,6 +58,10 @@ public class JPanelExpendedor extends JPanel {
         obtVuelto.setBounds(290, 80, 40,40);
         obtVuelto.setOpaque(false);
         this.add(obtVuelto);
+
+        Botonrecargado recargar = new Botonrecargado(this, cantproductos);
+        recargar.setBounds(290, 161, 40, 40 );
+        this.add(recargar);
     }
 
     public void paintComponent(Graphics g) {

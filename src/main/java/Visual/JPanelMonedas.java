@@ -1,25 +1,15 @@
 package Visual;
 
-import Tarea.clasemoneda.Moneda;
 import Visual.Botones.*;
 import java.awt.*;
 import javax.swing.*;
 
 public class JPanelMonedas extends JPanel {
-    private int saldo = 0;
-    private JTextField textosaldo; // Campo de texto para mostrar el saldo
 
     public JPanelMonedas(int largo, int ancho, JPanelExpendedor jpex) {
         super();
         setLayout(null);
         this.setBounds(0, 0, ancho / 2, largo);
-
-        // Crear el campo de texto para mostrar el saldo
-        textosaldo = new JTextField("Saldo: " + saldo);
-        textosaldo.setBounds(30, 230, 200, 20);
-        textosaldo.setEditable(false); // Hacer el campo de texto no editable
-        textosaldo.setBorder(null); // Hacer que el borde del campo de texto sea invisible
-        this.add(textosaldo);
 
         Boton100 boton100 = new Boton100(jpex, this);
         boton100.setBounds(30, 10, 100, 100);
@@ -45,14 +35,6 @@ public class JPanelMonedas extends JPanel {
         billetera.setBounds(50, 600, 350, 100);
         billetera.setOpaque(false);
         this.add(billetera);
-    }
-
-    public void sumarSaldo(int cantidad) {
-        saldo += cantidad;
-    }
-
-    public void actualizarSaldo() {
-        textosaldo.setText("Saldo: " + saldo);
     }
 
     @Override
