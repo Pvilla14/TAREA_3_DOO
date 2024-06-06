@@ -14,11 +14,12 @@ public class Expendedor {
     private Deposito<Dulces> snickers;//Depositos de Dulces tipo snickers
     private Deposito<Dulces> super8;//Depositos de Dulces tipo super8
     private Deposito<Moneda> monVu;//Depositos de Monedas para el vuelto
-    private Producto Compra;
+    public Producto Compra;
 
     public Deposito<Moneda> getVuelto(){
         return monVu;//retorna las monedas q se encuentran en el deposito de monedas
     }
+
     public void vaciarVuelto(){
         monVu.vaciar();
     }
@@ -30,82 +31,85 @@ public class Expendedor {
      * @throws Exception manda la excepción de PagoIncorectoException si se usa una moneda no instanciada o de tipo null
      */
     public void comprarProducto(int saldo, Valoresestaticos producto, Deposito<Moneda> billetera) throws Exception{
-        if(saldo == 0 || billetera == null){//si la moneda no tiene valor o no está definida manda una excepcion del tipo PagoIncorrectoException
-            throw new PagoIncorrectoException();
-        }
-        if(producto == null){//manda la excepción si se intenta comprar un elemento null o algo no definido en Valoresestaticos
-            throw new ProductoInexistenteException();
-        }
-        if( saldo < producto.getCoste()){//si el valor de la moneda el menor al precio del producto manda un excepción del tipo
-            for(int i = 0; i < saldo; i+= 100){//agrega monedas hasta que la cantidad sea igual a la diferencia entre el
-                monVu.addElemento(new Moneda100(1));                  //precio del producto y el valor de la moneda dada
+        if(Compra == null){
+            if(saldo == 0 || billetera == null){//si la moneda no tiene valor o no está definida manda una excepcion del tipo PagoIncorrectoException
+                throw new PagoIncorrectoException();
+            }
+            if(producto == null){//manda la excepción si se intenta comprar un elemento null o algo no definido en Valoresestaticos
+                throw new ProductoInexistenteException();
+            }
+            if( saldo < producto.getCoste()){//si el valor de la moneda el menor al precio del producto manda un excepción del tipo
+                for(int i = 0; i < saldo; i+= 100){//agrega monedas hasta que la cantidad sea igual a la diferencia entre el
+                    monVu.addElemento(new Moneda100(1));                  //precio del producto y el valor de la moneda dada
+                }
+                billetera.vaciar();
+                throw new PagoInsuficienteException();
             }
             billetera.vaciar();
-            throw new PagoInsuficienteException();
+
+            for(int i = producto.getCoste(); i < saldo; i+= 100){//agrega monedas hasta que la cantidad sea igual a la diferencia entre el
+                monVu.addElemento(new Moneda100(1));                  //precio del producto y el valor de la moneda dada
+            }
+
+            Bebida auxBebida = null;
+            Dulces auxDulces = null;
+            switch (producto) {//segun el tipo de producto q se escogio entra a los distintos swich
+                case COCA: //retorna una bebida de tipo cocacola si no manda excepción
+                    auxBebida = coca.getElemento();
+                    if (auxBebida == null) {
+                        throw new NoHayProductoException();
+                    } else {
+                        Compra = auxBebida;//guarda el producto en el deppsoto del producto
+                    }
+                    break;
+
+                case SPRITE: //retorna una bebida de tipo sprite si no manda excepción
+                    auxBebida = sprite.getElemento();
+                    if (auxBebida == null) {
+                        throw new NoHayProductoException();
+                    }
+                    Compra = sprite.getElemento();//retorna el producto
+                    break;
+
+                case FANTA: //retorna una bebida de tipo fanta si no manda excepción
+                    auxBebida = fanta.getElemento();
+                    if (auxBebida == null) {
+                        throw new NoHayProductoException();
+                    } else {
+                        Compra = auxBebida;//retorna el producto
+                    }
+                    break;
+
+                case SERRANITA: //retorna un dulce de tipo serranita si no manda excepción
+                    auxDulces = serranita.getElemento();
+                    if (auxDulces == null) {
+                        throw new NoHayProductoException();
+                    }
+                    Compra = auxDulces;//retorna el producto}
+                    break;
+
+                case SNICKERS: //retorna un dulce de tipo calugas si no manda excepción
+                    auxDulces = snickers.getElemento();
+                    if (auxDulces == null) {
+                        throw new NoHayProductoException();
+                    }
+                    Compra = auxDulces;//retorna el producto
+                    break;
+
+                case SUPER8: //retorna un dulce de tipo oreos si no manda excepción
+                    auxDulces = super8.getElemento();
+                    if (auxDulces == null) {
+                        throw new NoHayProductoException();
+                    }
+                    Compra = auxDulces;//retorna el producto
+                    break;
+
+                default:
+                    throw new ProductoInexistenteException();//no retorna nada en caso de que no se escojiera un tipo de producto
+            }
         }
-        billetera.vaciar();
-
-        for(int i = producto.getCoste(); i < saldo; i+= 100){//agrega monedas hasta que la cantidad sea igual a la diferencia entre el
-            monVu.addElemento(new Moneda100(1));                  //precio del producto y el valor de la moneda dada
-        }
-
-        Bebida auxBebida = null;
-        Dulces auxDulces = null;
-
-        switch (producto) {//segun el tipo de producto q se escogio entra a los distintos swich
-            case COCA: //retorna una bebida de tipo cocacola si no manda excepción
-                auxBebida = coca.getElemento();
-                if (auxBebida == null){
-                    throw new NoHayProductoException();
-                }
-                else{
-                    Compra = auxBebida;//guarda el producto en el deppsoto del producto
-                }
-                break;
-
-            case SPRITE: //retorna una bebida de tipo sprite si no manda excepción
-                auxBebida = sprite.getElemento();
-                if (auxBebida == null) {
-                    throw new NoHayProductoException();
-                }
-                Compra = sprite.getElemento();//retorna el producto
-                break;
-
-            case FANTA: //retorna una bebida de tipo fanta si no manda excepción
-                auxBebida = fanta.getElemento();
-                if(auxBebida == null){
-                    throw new NoHayProductoException();
-                }
-                else {
-                    Compra = auxBebida;//retorna el producto
-                }
-                break;
-
-            case SERRANITA: //retorna un dulce de tipo serranita si no manda excepción
-                auxDulces = serranita.getElemento();
-                if(auxDulces == null){
-                    throw new NoHayProductoException();
-                }
-                Compra = auxDulces;//retorna el producto}
-                break;
-
-            case SNICKERS: //retorna un dulce de tipo calugas si no manda excepción
-                auxDulces = snickers.getElemento();
-                if(auxDulces == null){
-                    throw new NoHayProductoException();
-                }
-                Compra = auxDulces;//retorna el producto
-                break;
-
-            case SUPER8: //retorna un dulce de tipo oreos si no manda excepción
-                auxDulces = super8.getElemento();
-                if(auxDulces == null){
-                    throw new NoHayProductoException();
-                }
-                Compra = auxDulces;//retorna el producto
-                break;
-
-            default: throw new ProductoInexistenteException();//no retorna nada en caso de que no se escojiera un tipo de producto
+        else{
+            throw new ProductoNoRetiradoException();
         }
     }
 

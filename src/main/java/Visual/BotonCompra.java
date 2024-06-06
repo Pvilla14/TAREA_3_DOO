@@ -45,7 +45,7 @@ public class BotonCompra extends JButton {
                 try {
                     Comprador sujeto = new Comprador(billeteralocal, productoseleccionado, maquina);
                     // Después de comprar, restar el precio del producto al saldo en visualBotones
-                } catch (NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException | ProductoInexistenteException ex) {
+                } catch (NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException | ProductoInexistenteException | ProductoNoRetiradoException ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             }

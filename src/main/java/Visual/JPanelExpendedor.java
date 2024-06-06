@@ -4,8 +4,9 @@ import Tarea.Deposito;
 import Tarea.Expendedor;
 import Tarea.Valoresestaticos;
 import Tarea.clasemoneda.*;
+import Visual.Botones.BotonGetCompra;
+
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
 public class JPanelExpendedor extends JPanel {
@@ -60,8 +61,12 @@ public class JPanelExpendedor extends JPanel {
         this.add(obtVuelto);
 
         Botonrecargado recargar = new Botonrecargado(this, cantproductos);
-        recargar.setBounds(290, 161, 40, 40 );
+        recargar.setBounds(290, 160, 40, 40 );
         this.add(recargar);
+
+        BotonGetCompra reocoger = new BotonGetCompra(expendedor);
+        reocoger.setBounds(290,210, 40, 40);
+        this.add(reocoger);
     }
 
     public void paintComponent(Graphics g) {
