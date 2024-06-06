@@ -4,7 +4,6 @@ import Tarea.Deposito;
 import Tarea.Expendedor;
 import Tarea.Valoresestaticos;
 import Tarea.clasemoneda.*;
-import Visual.Botones.BotonGetCompra;
 
 import java.awt.*;
 import javax.swing.*;
@@ -64,9 +63,13 @@ public class JPanelExpendedor extends JPanel {
         recargar.setBounds(290, 160, 40, 40 );
         this.add(recargar);
 
-        BotonGetCompra reocoger = new BotonGetCompra(expendedor);
+        BotonGetCompra reocoger = new BotonGetCompra(expendedor, this);
         reocoger.setBounds(290,210, 40, 40);
         this.add(reocoger);
+
+        JPanelImagenCompra imagenCompra = new JPanelImagenCompra(expendedor);
+        imagenCompra.setBounds(100,460,50,50);
+        this.add(imagenCompra);
     }
 
     public void paintComponent(Graphics g) {

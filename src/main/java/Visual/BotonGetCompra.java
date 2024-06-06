@@ -1,4 +1,4 @@
-package Visual.Botones;
+package Visual;
 
 import Tarea.Expendedor;
 import Tarea.Producto;
@@ -10,10 +10,12 @@ import java.awt.event.ActionListener;
 
 public class BotonGetCompra extends JButton {
     private Expendedor maquina;
+    private JPanelExpendedor visaulmaquina;
 
-    public BotonGetCompra(Expendedor ex){
+    public BotonGetCompra(Expendedor ex, JPanelExpendedor visual){
         super("recoger");
         maquina = ex;
+        visaulmaquina = visual;
         this.addActionListener(new AgarrarProducto());
     }
 
@@ -31,6 +33,8 @@ public class BotonGetCompra extends JButton {
             System.out.println(comprado);
             System.out.println(comprado.Consumir());
             maquina.Compra = null;
+            visaulmaquina.revalidate();
+            visaulmaquina.repaint();
         }
     }
 }
