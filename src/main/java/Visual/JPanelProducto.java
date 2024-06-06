@@ -1,31 +1,36 @@
 package Visual;
 
 import javax.swing.*;
-import Visual.Botones.*;
 import java.awt.*;
+import Visual.Botones.*;
+import Tarea.Valoresestaticos;
 
 public class JPanelProducto extends JPanel {
+    private Valoresestaticos valor;
+    private JLabel saldoLabel; // Etiqueta para mostrar el saldo
+
     public JPanelProducto(JPanelExpendedor jpex, JPanelMonedas botonesMonedas) {
         super();
+        this.saldoLabel = saldoLabel; // Asignar la etiqueta de saldo
         setLayout(null);
-        BotonSerranita serranita = new BotonSerranita(jpex, botonesMonedas);
-        serranita.setBounds(30, 50, 100, 100);
-        this.add(serranita);
-        BotonSuper8 super8 = new BotonSuper8(jpex, botonesMonedas);
-        super8.setBounds(140, 50, 100, 100);
-        this.add(super8);
-        BotonSnickers snickers = new BotonSnickers(jpex, botonesMonedas);
-        snickers.setBounds(250, 50, 100, 100);
-        this.add(snickers);
-        BotonCoca coca = new BotonCoca(jpex, botonesMonedas);
-        coca.setBounds(30, 170, 100, 100);
-        this.add(coca);
-        BotonSprite sprite = new BotonSprite(jpex, botonesMonedas);
-        sprite.setBounds(140, 170, 100, 100);
-        this.add(sprite);
-        BotonFanta fanta = new BotonFanta(jpex, botonesMonedas);
-        fanta.setBounds(250, 170, 100, 100);
-        this.add(fanta);
+
+        // Agregar botones con etiquetas de precios
+        addProductButtonWithPrice(new BotonSerranita(jpex, botonesMonedas), Valoresestaticos.SERRANITA, 30, 50);
+        addProductButtonWithPrice(new BotonSuper8(jpex, botonesMonedas), Valoresestaticos.SUPER8, 140, 50);
+        addProductButtonWithPrice(new BotonSnickers(jpex, botonesMonedas), Valoresestaticos.SNICKERS, 250, 50);
+        addProductButtonWithPrice(new BotonCoca(jpex, botonesMonedas), Valoresestaticos.COCA, 30, 200);
+        addProductButtonWithPrice(new BotonSprite(jpex, botonesMonedas), Valoresestaticos.SPRITE, 140, 200);
+        addProductButtonWithPrice(new BotonFanta(jpex, botonesMonedas), Valoresestaticos.FANTA, 250, 200);
+    }
+
+    private void addProductButtonWithPrice(JButton button, Valoresestaticos valor, int x, int y) {
+        button.setBounds(x, y, 100, 100);
+        this.add(button);
+
+        JLabel priceLabel = new JLabel("$" + valor.getCoste());
+        priceLabel.setBounds(x, y + 110, 100, 20);
+        priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        this.add(priceLabel);
     }
 
     public void paintComponent(Graphics g) {
