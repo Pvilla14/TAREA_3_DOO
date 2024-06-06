@@ -45,8 +45,9 @@ public class Expendedor {
             throw new PagoInsuficienteException();
         }
         billetera.vaciar();
+
         for(int i = producto.getCoste(); i < saldo; i+= 100){//agrega monedas hasta que la cantidad sea igual a la diferencia entre el
-            billetera.addElemento(new Moneda100(1));                  //precio del producto y el valor de la moneda dada
+            monVu.addElemento(new Moneda100(1));                  //precio del producto y el valor de la moneda dada
         }
 
         Bebida auxBebida = null;

@@ -11,7 +11,7 @@ public class JPanelExpendedor extends JPanel {
     private Expendedor expendedor;
     private Valoresestaticos producto;
     public Deposito<Moneda> billetera = new Deposito<Moneda>() ;
-    public JPanelExpendedor(int largo, int ancho) {
+    public JPanelExpendedor(int largo, int ancho, Pantalla jframe) {
         super();
         expendedor = new Expendedor(5) ;
         this.setLayout(null);
@@ -47,14 +47,14 @@ public class JPanelExpendedor extends JPanel {
         depositoSuper8.setOpaque(false);
         this.add(depositoSuper8);
 
-        //JPanelDeposito depositoVuelto = new JPanelDeposito(expendedor.getVuelto());
-        //depositoVuelto.setBounds(90, 530, 200,50);
-        //this.add(depositoVuelto);
+        JPanelDeposito depositoVuelto = new JPanelDeposito(expendedor.getVuelto());
+        depositoVuelto.setBounds(90, 530, 200,50);
+        this.add(depositoVuelto);
 
-        //BotonVuelto obtVuelto = new BotonVuelto(expendedor, this, jframe, depositoVuelto);
-        //obtVuelto.setBounds(290, 80, 40,40);
-        //obtVuelto.setOpaque(false);
-        //this.add(obtVuelto);
+        BotonVuelto obtVuelto = new BotonVuelto(expendedor, this, depositoVuelto, jframe);
+        obtVuelto.setBounds(290, 80, 40,40);
+        obtVuelto.setOpaque(false);
+        this.add(obtVuelto);
     }
 
     public void paintComponent(Graphics g) {
